@@ -1,4 +1,4 @@
-name: tests
+name: Tests
 
 on:
   pull_request:
@@ -10,13 +10,12 @@ on:
 
 jobs:
   tests:
-
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
       matrix:
-        php: [7.2, 7.3, 7.4, 8.0, 8.1]
-        stability: [lowest, highest]
+        php: [ 8.0, 8.1 ]
+        stability: [ lowest, highest ]
 
     name: PHP ${{ matrix.php }} - ${{ matrix.stability }}
 
@@ -32,10 +31,6 @@ jobs:
 
       - name: Setup problem matchers for PHPUnit
         run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
-
-      - if: matrix.php == '8.1'
-        name: Require packages for PHP 8.1
-        run: composer require orchestra/testbench:^6.23 --no-update
 
       - name: Install dependencies
         uses: ramsey/composer-install@v1

@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<phpunit
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
-        beStrictAboutOutputDuringTests="true"
-        bootstrap="vendor/autoload.php"
-        colors="true"
-        convertDeprecationsToExceptions="true"
-        failOnRisky="true"
-        failOnWarning="true"
-        verbose="true"
->
+<phpunit bootstrap="vendor/autoload.php" colors="true" verbose="true">
     <testsuites>
-        <testsuite name="Package Skeleton Laravel Test Suite">
-            <directory>./tests</directory>
+        <testsuite name="Laravel Flysystem OSS Test Suite">
+            <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
     <filter>

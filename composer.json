@@ -1,12 +1,8 @@
 {
-    "name": "zing/package-skeleton-laravel",
-    "description": "A skeleton repository for Laravel Packages",
-    "keywords": ["laravel", "package", "skeleton"],
+    "name": "zing/laravel-flysystem-oss",
+    "description": "Flysystem Adapter for OSS",
+    "keywords": ["laravel", "flysystem", "oss"],
     "license": "MIT",
-    "support": {
-        "issues": "https://github.com/zingimmick/package-skeleton-laravel/issues",
-        "source": "https://github.com/zingimmick/package-skeleton-laravel"
-    },
     "authors": [
         {
             "name": "zingimmick",
@@ -21,24 +17,25 @@
         }
     },
     "require": {
-        "php": "^7.2 || ^8.0",
-        "illuminate/support": "^6.0 || ^7.0 || ^8.0 || ^9.0"
+        "php": "^8.0",
+        "illuminate/support": "^9.0",
+        "zing/flysystem-oss": "^2.0"
     },
     "require-dev": {
         "mockery/mockery": "~1.3.3 || ^1.4.2",
         "nunomaduro/larastan": "^1.0",
-        "orchestra/testbench": "^4.0 || ^5.0 || ^6.0 || ^7.0",
+        "orchestra/testbench": "^7.0",
         "phpunit/phpunit": "^8.0,<8.5.12 || ^9.3.3",
-        "zing/coding-standard": "^5.2"
+        "zing/coding-standard": "^5.1"
     },
     "autoload": {
         "psr-4": {
-            "Zing\\Skeleton\\": "src"
+            "Zing\\LaravelFlysystem\\Oss\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Zing\\Skeleton\\Tests\\": "tests"
+            "Zing\\LaravelFlysystem\\Oss\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -59,16 +56,18 @@
         ],
         "test": [
             "@test:phpunit"
+        ],
+        "changelog": [
+            "changelog-linker dump-merges --ansi",
+            "changelog-linker link --ansi",
+            "changelog-linker cleanup --ansi"
         ]
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Zing\\Skeleton\\SkeletonServiceProvider"
-            ],
-            "aliases": {
-                "Skeleton": "Zing\\Skeleton\\Facades\\Skeleton"
-            }
+                "Zing\\LaravelFlysystem\\Oss\\OssServiceProvider"
+            ]
         }
     },
     "minimum-stability": "dev",
