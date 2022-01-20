@@ -4,27 +4,25 @@ declare(strict_types=1);
 
 namespace Zing\LaravelFlysystem\Oss;
 
-use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use League\Flysystem\Filesystem;
-use League\Flysystem\Visibility;
 use OSS\OssClient;
 use Zing\Flysystem\Oss\OssAdapter;
-use Zing\Flysystem\Oss\PortableVisibilityConverter;
+use Zing\Flysystem\Oss\Plugins\FileUrl;
+use Zing\Flysystem\Oss\Plugins\Kernel;
+use Zing\Flysystem\Oss\Plugins\SetBucket;
+use Zing\Flysystem\Oss\Plugins\SignUrl;
+use Zing\Flysystem\Oss\Plugins\TemporaryUrl;
 
 class OssServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Storage::extend('oss', function ($app, $config): FilesystemAdapter {
+        Storage::extend('oss', function ($app, $config): Filesystem {
             $root = $config['root'] ?? '';
             $options = $config['options'] ?? [];
-            $portableVisibilityConverter = new PortableVisibilityConverter(
-                $config['visibility'] ?? Visibility::PUBLIC,
-                $config['visibility'] ?? Visibility::PUBLIC
-            );
             if (! isset($config['is_cname']) && isset($config['bucket_endpoint'])) {
                 $config['is_cname'] = $config['bucket_endpoint'];
             }
@@ -38,22 +36,27 @@ class OssServiceProvider extends ServiceProvider
                 Arr::only($config, ['url', 'temporary_url', 'endpoint', 'bucket_endpoint'])
             );
 
-            $ossClient = new OssClient(
-                $config['key'],
-                $config['secret'],
-                $config['endpoint'],
-                $config['bucket_endpoint'] ?? false
-            );
             $ossAdapter = new OssAdapter(
-                $ossClient,
+                new OssClient(
+                    $config['key'],
+                    $config['secret'],
+                    $config['endpoint'],
+                    $config['bucket_endpoint'] ?? false
+                ),
                 $config['bucket'],
                 $root,
-                $portableVisibilityConverter,
-                null,
                 $options
             );
 
-            return new FilesystemAdapter(new Filesystem($ossAdapter, $config), $ossAdapter, $config);
+            $filesystem = new Filesystem($ossAdapter, $config);
+
+            $filesystem->addPlugin(new FileUrl());
+            $filesystem->addPlugin(new SignUrl());
+            $filesystem->addPlugin(new TemporaryUrl());
+            $filesystem->addPlugin(new SetBucket());
+            $filesystem->addPlugin(new Kernel());
+
+            return $filesystem;
         });
     }
 }

@@ -15,7 +15,7 @@ final class DriverTest extends TestCase
 {
     public function testDriverRegistered(): void
     {
-        self::assertInstanceOf(OssAdapter::class, Storage::disk('oss')->getAdapter());
+        self::assertInstanceOf(OssAdapter::class, Storage::disk('oss')->getDriver()->getAdapter());
     }
 
     public function testUrl(): void

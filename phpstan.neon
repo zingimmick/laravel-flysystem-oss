@@ -6,3 +6,5 @@ parameters:
     paths:
         - src
         - tests
+    ignoreErrors:
+        - '#Call to an undefined method League\\Flysystem\\FilesystemInterface::getAdapter\(\).#'
