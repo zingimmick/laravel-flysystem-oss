@@ -1,17 +1,17 @@
 # Laravel Flysystem OSS
 
-<p align="center">
-<a href="https://github.com/zingimmick/laravel-flysystem-oss/actions"><img src="https://github.com/zingimmick/laravel-flysystem-oss/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://codecov.io/gh/zingimmick/laravel-flysystem-oss"><img src="https://codecov.io/gh/zingimmick/laravel-flysystem-oss/branch/master/graph/badge.svg" alt="Code Coverage" /></a>
-<a href="https://packagist.org/packages/zing/laravel-flysystem-oss"><img src="https://poser.pugx.org/zing/laravel-flysystem-oss/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/zing/laravel-flysystem-oss"><img src="https://poser.pugx.org/zing/laravel-flysystem-oss/downloads" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/zing/laravel-flysystem-oss"><img src="https://poser.pugx.org/zing/laravel-flysystem-oss/v/unstable.svg" alt="Latest Unstable Version"></a>
-<a href="https://packagist.org/packages/zing/laravel-flysystem-oss"><img src="https://poser.pugx.org/zing/laravel-flysystem-oss/license" alt="License"></a>
-</p>
+OSS storage filesystem for Laravel based on [zing/flysystem-oss](https://github.com/zingimmick/flysystem-oss)
+
+[![Build Status](https://github.com/zingimmick/laravel-flysystem-oss/workflows/tests/badge.svg)](https://github.com/zingimmick/laravel-flysystem-oss/actions)
+[![Code Coverage](https://codecov.io/gh/zingimmick/laravel-flysystem-oss/branch/master/graph/badge.svg)](https://codecov.io/gh/zingimmick/laravel-flysystem-oss)
+[![Latest Stable Version](https://poser.pugx.org/zing/laravel-flysystem-oss/v/stable.svg)](https://packagist.org/packages/zing/laravel-flysystem-oss)
+[![Total Downloads](https://poser.pugx.org/zing/laravel-flysystem-oss/downloads)](https://packagist.org/packages/zing/laravel-flysystem-oss)
+[![Latest Unstable Version](https://poser.pugx.org/zing/laravel-flysystem-oss/v/unstable.svg)](https://packagist.org/packages/zing/laravel-flysystem-oss)
+[![License](https://poser.pugx.org/zing/laravel-flysystem-oss/license)](https://packagist.org/packages/zing/laravel-flysystem-oss)
 
 > **Requires**
 > - **[PHP 8.0+](https://php.net/releases/)**
-> - **[Laravel 9.0+](https://github.com/laravel/laravel)**
+> - **[Laravel 9.0+](https://laravel.com/docs/releases)**
 
 ## Version Information
 
@@ -44,6 +44,16 @@ return [
         ],
     ]
 ];
+```
+
+## Environment
+
+```dotenv
+OSS_KEY=
+OSS_SECRET=
+OSS_BUCKET=
+OSS_ENDPOINT=
+OSS_BUCKET_ENDPOINT=false
 ```
 
 ## License
