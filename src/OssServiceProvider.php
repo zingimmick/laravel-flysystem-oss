@@ -23,13 +23,10 @@ class OssServiceProvider extends ServiceProvider
         Storage::extend('oss', function ($app, $config): Filesystem {
             $root = $config['root'] ?? '';
             $options = $config['options'] ?? [];
-            if (! isset($config['is_cname']) && isset($config['bucket_endpoint'])) {
-                $config['is_cname'] = $config['bucket_endpoint'];
-            }
-
-            if (isset($config['is_cname']) && ! isset($config['bucket_endpoint'])) {
-                $config['bucket_endpoint'] = $config['is_cname'];
-            }
+            $config['key'] = $config['key'] ?? $config['access_key_id'] ?? null;
+            $config['secret'] = $config['secret'] ?? $config['access_key_secret'] ?? null;
+            $config['bucket_endpoint'] = $config['bucket_endpoint'] ?? $config['is_cname'] ?? false;
+            $config['token'] = $config['token'] ?? $config['security_token'] ?? null;
 
             $options = array_merge(
                 $options,
@@ -41,7 +38,9 @@ class OssServiceProvider extends ServiceProvider
                     $config['key'],
                     $config['secret'],
                     $config['endpoint'],
-                    $config['bucket_endpoint'] ?? false
+                    $config['bucket_endpoint'] ?? false,
+                    $config['token'],
+                    $config['proxy'] ?? null
                 ),
                 $config['bucket'],
                 $root,
