@@ -36,14 +36,26 @@ return [
         'oss' => [
             'driver' => 'oss',
             'root' => '',
-            'key' => env('OSS_KEY'),
-            'secret' => env('OSS_SECRET'),
+            'access_key_id' => env('OSS_ACCESS_KEY_ID'),
+            'access_key_secret' => env('OSS_ACCESS_KEY_SECRET'),
             'bucket' => env('OSS_BUCKET'),
             'endpoint' => env('OSS_ENDPOINT'),
-            'bucket_endpoint' => env('OSS_BUCKET_ENDPOINT', false),
+            'is_cname' => env('OSS_IS_CNAME', false),
+            'security_token' => env('OSS_SECURITY_TOKEN'),
         ],
     ]
 ];
+```
+
+## Environment
+
+```dotenv
+OSS_ACCESS_KEY_ID=
+OSS_ACCESS_KEY_SECRET=
+OSS_BUCKET=
+OSS_ENDPOINT=
+OSS_IS_CNAME=
+OSS_SECURITY_TOKEN=
 ```
 
 ## License
