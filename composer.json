@@ -3,6 +3,11 @@
     "description": "Flysystem Adapter for OSS",
     "keywords": ["oss", "laravel", "flysystem", "filesystem", "storage", "file", "files"],
     "license": "MIT",
+    "homepage": "https://github.com/zingimmick/laravel-flysystem-oss",
+    "support": {
+        "issues": "https://github.com/zingimmick/laravel-flysystem-oss/issues",
+        "source": "https://github.com/zingimmick/laravel-flysystem-oss"
+    },
     "authors": [
         {
             "name": "zingimmick",
