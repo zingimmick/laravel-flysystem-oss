@@ -18,24 +18,21 @@ class OssServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Storage::extend('oss', function ($app, $config) : FilesystemAdapter {
+        Storage::extend('oss', static function ($app, $config): FilesystemAdapter {
             $root = $config['root'] ?? '';
             $options = $config['options'] ?? [];
             $portableVisibilityConverter = new PortableVisibilityConverter(
                 $config['visibility'] ?? Visibility::PUBLIC,
                 $config['directory_visibility'] ?? $config['visibility'] ?? Visibility::PUBLIC
             );
-
             $config['key'] ??= $config['access_key_id'] ?? null;
             $config['secret'] ??= $config['access_key_secret'] ?? null;
             $config['bucket_endpoint'] ??= $config['is_cname'] ?? false;
             $config['token'] ??= $config['security_token'] ?? null;
-
             $options = array_merge(
                 $options,
                 Arr::only($config, ['url', 'temporary_url', 'endpoint', 'bucket_endpoint'])
             );
-
             $ossClient = new OssClient(
                 $config['key'],
                 $config['secret'],
