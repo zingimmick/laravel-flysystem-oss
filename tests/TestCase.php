@@ -60,14 +60,15 @@ abstract class TestCase extends BaseTestCase
             'bucket' => 'your-bucket',
             'endpoint' => 'https://your-endpoint',
             'is_cname' => true,
-        ]);        Config::set('filesystems.disks.oss-read-only', [
-        'driver' => 'oss',
-        'key' => 'aW52YWxpZC1rZXk=',
-        'secret' => 'aW52YWxpZC1zZWNyZXQ=',
-        'bucket' => 'your-bucket',
-        'endpoint' => 'https://your-endpoint',
-        'read-only' => true,
-    ]);
+        ]);
+        Config::set('filesystems.disks.oss-read-only', [
+            'driver' => 'oss',
+            'key' => 'aW52YWxpZC1rZXk=',
+            'secret' => 'aW52YWxpZC1zZWNyZXQ=',
+            'bucket' => 'your-bucket',
+            'endpoint' => 'https://your-endpoint',
+            'read-only' => true,
+        ]);
         Config::set('filesystems.disks.oss-prefix-url', [
             'driver' => 'oss',
             'key' => 'aW52YWxpZC1rZXk=',

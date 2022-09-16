@@ -59,7 +59,8 @@ class OssServiceProvider extends ServiceProvider
             if (! empty($config['prefix'])) {
                 $adapter = new PathPrefixedAdapter($adapter, $config['prefix']);
             }
-            return new OssAdapter(new Filesystem($adapter, $config), $ossAdapter, $config,$ossClient);
+
+            return new OssAdapter(new Filesystem($adapter, $config), $ossAdapter, $config, $ossClient);
         });
     }
 }

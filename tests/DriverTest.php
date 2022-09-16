@@ -48,6 +48,7 @@ final class DriverTest extends TestCase
             Storage::disk('oss-is-cname')->temporaryUrl('test', Carbon::now()->addMinutes())
         );
     }
+
     public function testReadOnly(): void
     {
         $this->expectException(UnableToWriteFile::class);
