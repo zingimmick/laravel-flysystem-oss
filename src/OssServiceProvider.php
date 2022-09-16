@@ -9,9 +9,11 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\ServiceProvider;
 use League\Flysystem\Filesystem;
+use League\Flysystem\PathPrefixing\PathPrefixedAdapter;
+use League\Flysystem\ReadOnly\ReadOnlyFilesystemAdapter;
 use League\Flysystem\Visibility;
 use OSS\OssClient;
-use Zing\Flysystem\Oss\OssAdapter;
+use Zing\Flysystem\Oss\OssAdapter as Adapter;
 use Zing\Flysystem\Oss\PortableVisibilityConverter;
 
 class OssServiceProvider extends ServiceProvider
@@ -41,7 +43,7 @@ class OssServiceProvider extends ServiceProvider
                 $config['token'],
                 $config['proxy'] ?? null
             );
-            $ossAdapter = new OssAdapter(
+            $ossAdapter = new Adapter(
                 $ossClient,
                 $config['bucket'],
                 $root,
@@ -49,8 +51,15 @@ class OssServiceProvider extends ServiceProvider
                 null,
                 $options
             );
+            $adapter = $ossAdapter;
+            if (($config['read-only'] ?? false) === true) {
+                $adapter = new ReadOnlyFilesystemAdapter($adapter);
+            }
 
-            return new FilesystemAdapter(new Filesystem($ossAdapter, $config), $ossAdapter, $config);
+            if (! empty($config['prefix'])) {
+                $adapter = new PathPrefixedAdapter($adapter, $config['prefix']);
+            }
+            return new OssAdapter(new Filesystem($adapter, $config), $ossAdapter, $config,$ossClient);
         });
     }
 }

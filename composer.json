@@ -24,10 +24,13 @@
     },
     "require": {
         "php": "^8.0",
+        "illuminate/filesystem": "^9.30",
         "illuminate/support": "^9.0",
         "zing/flysystem-oss": "^2.0"
     },
     "require-dev": {
+        "league/flysystem-path-prefixing": "^3.3",
+        "league/flysystem-read-only": "^3.3",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/larastan": "^1.0 || ^2.0",
         "orchestra/testbench": "^7.0",
