@@ -1,7 +1,20 @@
 # Changelog
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 <!-- changelog-linker -->
+## 2.3.0 - 2022-09-16
+
+<!-- Release notes generated using configuration in .github/release.yml at master -->
+### What's Changed
+
+#### Other Changes
+
+- Add support for new ECSConfig and RectorConfig class by @zingimmick in https://github.com/zingimmick/laravel-flysystem-oss/pull/19
+- Changes Closure to be static when possible by @zingimmick in https://github.com/zingimmick/laravel-flysystem-oss/pull/26
+- Added read-only and prefix filesystem adapter decoration as a config option by @zingimmick in https://github.com/zingimmick/laravel-flysystem-oss/pull/28
+
+**Full Changelog**: https://github.com/zingimmick/laravel-flysystem-oss/compare/2.2.0...2.3.0
