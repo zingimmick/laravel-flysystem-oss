@@ -6,6 +6,7 @@ namespace Zing\LaravelFlysystem\Oss\Tests;
 
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
+use League\Flysystem\UnableToWriteFile;
 use Zing\Flysystem\Oss\OssAdapter;
 
 /**
@@ -46,5 +47,37 @@ final class DriverTest extends TestCase
             'https://your-endpoint',
             Storage::disk('oss-is-cname')->temporaryUrl('test', Carbon::now()->addMinutes())
         );
+    }
+
+    public function testReadOnly(): void
+    {
+        $this->expectException(UnableToWriteFile::class);
+        Storage::disk('oss-read-only')->write('test', 'test');
+    }
+
+    public function testPrefix(): void
+    {
+        self::assertSame(
+            'https://your-bucket.your-endpoint/root/prefix/test',
+            Storage::disk('oss-prefix-url')->url('test')
+        );
+        self::assertStringStartsWith(
+            'https://your-bucket.your-endpoint/root/prefix/test',
+            Storage::disk('oss-prefix-url')->temporaryUrl('test', Carbon::now()->addMinutes())
+        );
+    }
+
+    public function testReadOnlyAndPrefix(): void
+    {
+        self::assertSame(
+            'https://your-bucket.your-endpoint/root/prefix/test',
+            Storage::disk('oss-read-only-and-prefix-url')->url('test')
+        );
+        self::assertStringStartsWith(
+            'https://your-bucket.your-endpoint/root/prefix/test',
+            Storage::disk('oss-read-only-and-prefix-url')->temporaryUrl('test', Carbon::now()->addMinutes())
+        );
+        $this->expectException(UnableToWriteFile::class);
+        Storage::disk('oss-read-only-and-prefix-url')->write('test', 'test');
     }
 }
