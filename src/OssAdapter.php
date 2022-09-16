@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Zing\LaravelFlysystem\Oss;
 
 use GuzzleHttp\Psr7\Uri;
@@ -11,7 +13,7 @@ use Zing\Flysystem\Oss\OssAdapter as Adapter;
 class OssAdapter extends FilesystemAdapter
 {
     /**
-     * @var Adapter
+     * @var \Zing\Flysystem\Oss\OssAdapter
      */
     protected $adapter;
 
@@ -22,7 +24,7 @@ class OssAdapter extends FilesystemAdapter
         FilesystemOperator $driver,
         Adapter $adapter,
         array $config,
-        protected OssClient $obsClient
+        protected OssClient $ossClient
     ) {
         parent::__construct($driver, $adapter, $config);
     }
@@ -74,7 +76,7 @@ class OssAdapter extends FilesystemAdapter
      */
     public function getClient(): OssClient
     {
-        return $this->obsClient;
+        return $this->ossClient;
     }
 
     /**
@@ -90,12 +92,6 @@ class OssAdapter extends FilesystemAdapter
     ): string {
         $expires = $expiration instanceof \DateTimeInterface ? $expiration->getTimestamp() - time() : $expiration;
 
-        return $this->obsClient->signUrl(
-            $this->config['bucket'],
-            $path,
-            $expires,
-            $method,
-            $options
-        );
+        return $this->ossClient->signUrl($this->config['bucket'], $path, $expires, $method, $options);
     }
 }
