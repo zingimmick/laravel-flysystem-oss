@@ -26,7 +26,7 @@
         "php": "^8.0",
         "illuminate/filesystem": "^9.30",
         "illuminate/support": "^9.0",
-        "zing/flysystem-oss": "^2.0"
+        "zing/flysystem-oss": "^2.0 || ^3.0"
     },
     "require-dev": {
         "league/flysystem-path-prefixing": "^3.3",
