@@ -6,12 +6,15 @@ namespace Zing\LaravelFlysystem\Oss;
 
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Filesystem\FilesystemAdapter;
+use Illuminate\Support\Traits\Conditionable;
 use League\Flysystem\FilesystemOperator;
 use OSS\OssClient;
 use Zing\Flysystem\Oss\OssAdapter as Adapter;
 
 class OssAdapter extends FilesystemAdapter
 {
+    use Conditionable;
+
     /**
      * @var \Zing\Flysystem\Oss\OssAdapter
      */
@@ -93,5 +96,28 @@ class OssAdapter extends FilesystemAdapter
         $expires = $expiration instanceof \DateTimeInterface ? $expiration->getTimestamp() - time() : $expiration;
 
         return $this->ossClient->signUrl($this->config['bucket'], $path, $expires, $method, $options);
+    }
+
+    /**
+     * Get a temporary URL for the file at the given path.
+     *
+     * @param string $path
+     * @param \DateTimeInterface $expiration
+     * @param array<string, mixed> $options
+     *
+     * @return array{url: string, headers: never[]}
+     */
+    public function temporaryUploadUrl($path, $expiration, array $options = []): array
+    {
+        $uri = new Uri($this->signUrl($this->prefixer->prefixPath($path), $expiration, $options, 'PUT'));
+
+        if (isset($this->config['temporary_url'])) {
+            $uri = $this->replaceBaseUrl($uri, $this->config['temporary_url']);
+        }
+
+        return [
+            'url' => (string) $uri,
+            'headers' => [],
+        ];
     }
 }

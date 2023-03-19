@@ -80,4 +80,16 @@ final class DriverTest extends TestCase
         $this->expectException(UnableToWriteFile::class);
         Storage::disk('oss-read-only-and-prefix-url')->write('test', 'test');
     }
+
+    public function testTemporaryUploadUrl(): void
+    {
+        $now = Carbon::createFromTimestamp('1679168447');
+        self::assertSame(
+            [
+                'url' => 'https://test-temporary-url/test?OSSAccessKeyId=aW52YWxpZC1rZXk%3D&Expires=1679168447&Signature=ac7W4XnraWI4g%2ForUC1AnYCVYFk%3D',
+                'headers' => [],
+            ],
+            Storage::disk('oss-temporary-url')->temporaryUploadUrl('test', $now)
+        );
+    }
 }
