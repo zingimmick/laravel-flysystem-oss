@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Zing\LaravelFlysystem\Oss\Tests;
 
+use GuzzleHttp\Psr7\Uri;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 use League\Flysystem\UnableToWriteFile;
@@ -84,9 +85,17 @@ final class DriverTest extends TestCase
     public function testTemporaryUploadUrl(): void
     {
         $now = Carbon::createFromTimestamp('1679168447');
-        $this->assertSame([
-            'url' => 'https://test-temporary-url/test?Expires=1679168447&OSSAccessKeyId=aW52YWxpZC1rZXk%3D&Signature=ac7W4XnraWI4g%2ForUC1AnYCVYFk%3D',
-            'headers' => [],
-        ], Storage::disk('oss-temporary-url')->temporaryUploadUrl('test', $now));
+        $temporaryUploadUrl = Storage::disk('oss-temporary-url')->temporaryUploadUrl('test', $now);
+        $this->assertSame([], $temporaryUploadUrl['headers']);
+        $uri = new Uri($temporaryUploadUrl['url']);
+        $this->assertSame('https', $uri->getScheme());
+        $this->assertSame('test-temporary-url', $uri->getHost());
+        $this->assertSame('/test', $uri->getPath());
+        $query = explode('&',$uri->getQuery());
+        asort($query);
+        $this->assertSame(
+            ['Expires=1679168447','OSSAccessKeyId=aW52YWxpZC1rZXk%3D','Signature=ac7W4XnraWI4g%2ForUC1AnYCVYFk%3D'],
+            array_values($query)
+        );
     }
 }
