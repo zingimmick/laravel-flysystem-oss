@@ -85,7 +85,7 @@ final class DriverTest extends TestCase
     {
         $now = Carbon::createFromTimestamp('1679168447');
         $this->assertSame([
-            'url' => 'https://test-temporary-url/test?OSSAccessKeyId=aW52YWxpZC1rZXk%3D&Expires=1679168447&Signature=ac7W4XnraWI4g%2ForUC1AnYCVYFk%3D',
+            'url' => 'https://test-temporary-url/test?Expires=1679168447&OSSAccessKeyId=aW52YWxpZC1rZXk%3D&Signature=ac7W4XnraWI4g%2ForUC1AnYCVYFk%3D',
             'headers' => [],
         ], Storage::disk('oss-temporary-url')->temporaryUploadUrl('test', $now));
     }
