@@ -91,10 +91,10 @@ final class DriverTest extends TestCase
         $this->assertSame('https', $uri->getScheme());
         $this->assertSame('test-temporary-url', $uri->getHost());
         $this->assertSame('/test', $uri->getPath());
-        $query = explode('&',$uri->getQuery());
+        $query = explode('&', $uri->getQuery());
         asort($query);
         $this->assertSame(
-            ['Expires=1679168447','OSSAccessKeyId=aW52YWxpZC1rZXk%3D','Signature=ac7W4XnraWI4g%2ForUC1AnYCVYFk%3D'],
+            ['Expires=1679168447', 'OSSAccessKeyId=aW52YWxpZC1rZXk%3D', 'Signature=ac7W4XnraWI4g%2ForUC1AnYCVYFk%3D'],
             array_values($query)
         );
     }
