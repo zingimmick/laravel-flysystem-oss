@@ -6,6 +6,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 <!-- changelog-linker -->
+## 2.7.0 - 2024-03-18
+
+<!-- Release notes generated using configuration in .github/release.yml at master -->
+### What's Changed
+
+#### Other Changes
+
+* Rename skipped rules on $rectorConfig->skip() are changed to different namespace by @zingimmick in https://github.com/zingimmick/laravel-flysystem-oss/pull/48
+* Support for PHP 8.3 by @zingimmick in https://github.com/zingimmick/laravel-flysystem-oss/pull/52
+* Update license copyright year(s) by @github-actions in https://github.com/zingimmick/laravel-flysystem-oss/pull/56
+* Adjust the order of signature parameters by @zingimmick in https://github.com/zingimmick/laravel-flysystem-oss/pull/59
+
+**Full Changelog**: https://github.com/zingimmick/laravel-flysystem-oss/compare/2.6.0...2.7.0
+
 ## 2.6.0 - 2023-03-19
 
 <!-- Release notes generated using configuration in .github/release.yml at master -->
