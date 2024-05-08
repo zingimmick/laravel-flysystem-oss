@@ -2,7 +2,7 @@
 
 OSS storage filesystem for Laravel based on [zing/flysystem-oss](https://github.com/zingimmick/flysystem-oss)
 
-[![Build Status](https://github.com/zingimmick/laravel-flysystem-oss/workflows/tests/badge.svg)](https://github.com/zingimmick/laravel-flysystem-oss/actions)
+[![Build Status](https://github.com/zingimmick/laravel-flysystem-oss/actions/workflows/tests.yml/badge.svg?banch=master)](https://github.com/zingimmick/laravel-flysystem-oss/actions)
 [![Code Coverage](https://codecov.io/gh/zingimmick/laravel-flysystem-oss/branch/master/graph/badge.svg)](https://codecov.io/gh/zingimmick/laravel-flysystem-oss)
 [![Latest Stable Version](https://poser.pugx.org/zing/laravel-flysystem-oss/v/stable.svg)](https://packagist.org/packages/zing/laravel-flysystem-oss)
 [![Total Downloads](https://poser.pugx.org/zing/laravel-flysystem-oss/downloads)](https://packagist.org/packages/zing/laravel-flysystem-oss)
