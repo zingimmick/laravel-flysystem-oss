@@ -20,7 +20,7 @@ class OssServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        Storage::extend('oss', function ($app, $config): Filesystem {
+        Storage::extend('oss', static function ($app, $config): Filesystem {
             $root = $config['root'] ?? '';
             $options = $config['options'] ?? [];
             $config['key'] = $config['key'] ?? $config['access_key_id'] ?? null;
