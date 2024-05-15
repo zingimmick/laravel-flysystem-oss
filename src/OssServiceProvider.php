@@ -21,6 +21,9 @@ use Zing\Flysystem\Oss\PortableVisibilityConverter;
  */
 class OssServiceProvider extends ServiceProvider
 {
+    /**
+     * Register the OSS driver creator Closure.
+     */
     public function boot(): void
     {
         Storage::extend('oss', static function ($app, $config): FilesystemAdapter {
