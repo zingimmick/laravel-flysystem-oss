@@ -11,6 +11,9 @@ use League\Flysystem\FilesystemOperator;
 use OSS\OssClient;
 use Zing\Flysystem\Oss\OssAdapter as Adapter;
 
+/**
+ * FilesystemAdapter for OSS
+ */
 class OssAdapter extends FilesystemAdapter
 {
     use Conditionable;
