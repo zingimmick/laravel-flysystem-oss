@@ -12,7 +12,7 @@ use OSS\OssClient;
 use Zing\Flysystem\Oss\OssAdapter as Adapter;
 
 /**
- * FilesystemAdapter for OSS
+ * FilesystemAdapter for OSS.
  */
 class OssAdapter extends FilesystemAdapter
 {

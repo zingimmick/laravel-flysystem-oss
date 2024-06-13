@@ -17,7 +17,7 @@ use Zing\Flysystem\Oss\OssAdapter as Adapter;
 use Zing\Flysystem\Oss\PortableVisibilityConverter;
 
 /**
- * ServiceProvider for OSS
+ * ServiceProvider for OSS.
  */
 class OssServiceProvider extends ServiceProvider
 {
