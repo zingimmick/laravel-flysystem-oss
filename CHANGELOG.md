@@ -6,6 +6,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 <!-- changelog-linker -->
+## 2.7.1 - 2025-01-22
+
+<!-- Release notes generated using configuration in .github/release.yml at master -->
+### What's Changed
+
+#### Other Changes
+
+* Fix GitHub action status badge by @zingimmick in https://github.com/zingimmick/laravel-flysystem-oss/pull/69
+* ci: add .deepsource.toml by @deepsource-autofix in https://github.com/zingimmick/laravel-flysystem-oss/pull/70
+* Add doc comment by @zingimmick in https://github.com/zingimmick/laravel-flysystem-oss/pull/73
+* Remove rules that were never registered by @zingimmick in https://github.com/zingimmick/laravel-flysystem-oss/pull/78
+* Support for PHP 8.4 by @zingimmick in https://github.com/zingimmick/laravel-flysystem-oss/pull/80
+* Allow nesbot/carbon 3.4 in tests action by @zingimmick in https://github.com/zingimmick/laravel-flysystem-oss/pull/82
+* Update license copyright year(s) by @github-actions in https://github.com/zingimmick/laravel-flysystem-oss/pull/85
+
+### New Contributors
+
+* @deepsource-autofix made their first contribution in https://github.com/zingimmick/laravel-flysystem-oss/pull/70
+
+**Full Changelog**: https://github.com/zingimmick/laravel-flysystem-oss/compare/2.7.0...2.7.1
+
 ## 2.7.0 - 2024-03-18
 
 <!-- Release notes generated using configuration in .github/release.yml at master -->
