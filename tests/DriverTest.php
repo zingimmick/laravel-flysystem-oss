@@ -15,7 +15,7 @@ use Zing\Flysystem\Oss\OssAdapter;
  */
 final class DriverTest extends TestCase
 {
-    public function testDriverRegistered(): void
+    public function testDriverRegistered(): void 
     {
         $this->assertInstanceOf(OssAdapter::class, Storage::disk('oss')->getAdapter());
     }
