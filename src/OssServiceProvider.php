@@ -27,7 +27,7 @@ class OssServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Storage::extend('oss', static function ($app, $config): FilesystemAdapter {
+        Storage::extend('oss', static function ($app, array $config): FilesystemAdapter {
             $root = $config['root'] ?? '';
             $options = $config['options'] ?? [];
             $portableVisibilityConverter = new PortableVisibilityConverter(
