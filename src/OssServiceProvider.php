@@ -70,7 +70,7 @@ class OssServiceProvider extends ServiceProvider
                     $config['key'],
                     $config['secret'],
                     $config['endpoint'],
-                    $config['bucket_endpoint'] ?? false,
+                    $config['bucket_endpoint'],
                     $config['token'],
                     $config['proxy'] ?? null
                 );
