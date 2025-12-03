@@ -92,6 +92,7 @@ class OssServiceProvider extends ServiceProvider
             if (isset($config['schema']) && ! isset($config['scheme'])) {
                 $config['scheme'] = $config['schema'];
             }
+
             if (isset($config['scheme'])) {
                 $ossClient->setUseSSL($config['scheme'] === 'https');
             }
