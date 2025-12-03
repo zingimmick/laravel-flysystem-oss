@@ -88,8 +88,13 @@ class OssServiceProvider extends ServiceProvider
                 $ossClient->setConnectTimeout($config['http']['connect_timeout']);
             }
 
-            if (isset($config['schema'])) {
-                $ossClient->setUseSSL($config['schema'] === 'https');
+            // Fix typo, will be removed in the next major version.
+            if (isset($config['schema']) && ! isset($config['scheme'])) {
+                $config['scheme'] = $config['schema'];
+            }
+
+            if (isset($config['scheme'])) {
+                $ossClient->setUseSSL($config['scheme'] === 'https');
             }
 
             $ossAdapter = new Adapter(
