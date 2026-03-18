@@ -13,5 +13,6 @@ return static function (ECSConfig $ecsConfig): void {
         \PHP_CodeSniffer\Standards\Generic\Sniffs\Metrics\CyclomaticComplexitySniff::class => [
             __DIR__ . '/src/OssServiceProvider.php',
         ],
+        \PhpCsFixer\Fixer\FunctionNotation\StaticLambdaFixer::class => [__DIR__ . '/src/OssServiceProvider.php'],
     ]);
 };
