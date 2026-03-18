@@ -6,6 +6,34 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 <!-- changelog-linker -->
+## 2.8.1 - 2026-03-18
+
+<!-- Release notes generated using configuration in .github/release.yml at master -->
+### What's Changed
+
+#### Other Changes
+
+* Support for PHPUnit 12 by @zingimmick in https://github.com/zingimmick/laravel-flysystem-oss/pull/88
+* Bump shivammathur/setup-php from 2.32.0 to 2.33.0 by @dependabot[bot] in https://github.com/zingimmick/laravel-flysystem-oss/pull/89
+* Bump shivammathur/setup-php from 2.33.0 to 2.34.0 by @dependabot[bot] in https://github.com/zingimmick/laravel-flysystem-oss/pull/90
+* Bump shivammathur/setup-php from 2.34.0 to 2.34.1 by @dependabot[bot] in https://github.com/zingimmick/laravel-flysystem-oss/pull/91
+* Bump shivammathur/setup-php from 2.34.1 to 2.35.1 by @dependabot[bot] in https://github.com/zingimmick/laravel-flysystem-oss/pull/92
+* Bump shivammathur/setup-php from 2.35.1 to 2.35.2 by @dependabot[bot] in https://github.com/zingimmick/laravel-flysystem-oss/pull/93
+* Bump actions/checkout from 4 to 5 by @dependabot[bot] in https://github.com/zingimmick/laravel-flysystem-oss/pull/95
+* Bump shivammathur/setup-php from 2.35.2 to 2.35.3 by @dependabot[bot] in https://github.com/zingimmick/laravel-flysystem-oss/pull/94
+* Bump shivammathur/setup-php from 2.35.3 to 2.35.4 by @dependabot[bot] in https://github.com/zingimmick/laravel-flysystem-oss/pull/96
+* Bump shivammathur/setup-php from 2.35.4 to 2.35.5 by @dependabot[bot] in https://github.com/zingimmick/laravel-flysystem-oss/pull/97
+* Support for PHP 8.5 by @zingimmick in https://github.com/zingimmick/laravel-flysystem-oss/pull/98
+* Bump actions/checkout from 5 to 6 by @dependabot[bot] in https://github.com/zingimmick/laravel-flysystem-oss/pull/99
+* Bump shivammathur/setup-php from 2.35.5 to 2.36.0 by @dependabot[bot] in https://github.com/zingimmick/laravel-flysystem-oss/pull/100
+* Correct scheme configuration key handling by @zingimmick in https://github.com/zingimmick/laravel-flysystem-oss/pull/101
+* Update license copyright year(s) by @github-actions[bot] in https://github.com/zingimmick/laravel-flysystem-oss/pull/102
+* Support for Laravel 13 by @zingimmick in https://github.com/zingimmick/laravel-flysystem-oss/pull/105
+* Bump shivammathur/setup-php from 2.36.0 to 2.37.0 by @dependabot[bot] in https://github.com/zingimmick/laravel-flysystem-oss/pull/104
+* Bump ramsey/composer-install from 3 to 4 by @dependabot[bot] in https://github.com/zingimmick/laravel-flysystem-oss/pull/103
+
+**Full Changelog**: https://github.com/zingimmick/laravel-flysystem-oss/compare/2.8.0...2.8.1
+
 ## 2.8.0 - 2025-02-24
 
 <!-- Release notes generated using configuration in .github/release.yml at master -->
