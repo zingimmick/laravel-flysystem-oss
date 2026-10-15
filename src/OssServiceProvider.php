@@ -56,7 +56,7 @@ class OssServiceProvider extends ServiceProvider
             }
 
             if (class_exists(StaticCredentialsProvider::class)) {
-                if (! isset($config['provider'])) {
+                if (! isset($config['provider'])){
                     $config['provider'] = new StaticCredentialsProvider(
                         $config['key'],
                         $config['secret'],
